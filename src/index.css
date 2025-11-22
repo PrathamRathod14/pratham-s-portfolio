@@ -72,11 +72,11 @@ All colors MUST be HSL.
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary via-blue-500 to-primary bg-clip-text text-transparent;
   }
 
   .glass-effect {
-    @apply bg-white/80 backdrop-blur-sm border border-border shadow-lg;
+    @apply bg-white/90 backdrop-blur-sm border border-border shadow-md;
   }
 
   .glow-effect {
