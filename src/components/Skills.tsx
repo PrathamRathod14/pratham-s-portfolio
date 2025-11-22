@@ -1,65 +1,62 @@
-import { Code, Database, Cloud, Brain } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 
 const Skills = () => {
   const skillCategories = [
     {
       title: "Programming Languages",
-      icon: Code,
       skills: ["Java", "C++", "PHP", "Python", "JavaScript", "TypeScript"],
+      color: "bg-blue-50 border-blue-200 hover:border-blue-400",
     },
     {
       title: "Web Development",
-      icon: Code,
       skills: [
         "HTML5",
         "CSS3",
         "JavaScript",
         "jQuery",
-        "AJAX",
         "Bootstrap",
         "Angular",
         "ReactJS",
         "NiceGUI",
       ],
+      color: "bg-purple-50 border-purple-200 hover:border-purple-400",
     },
     {
       title: "Databases",
-      icon: Database,
       skills: ["MySQL", "PostgreSQL", "SQLite", "MongoDB"],
+      color: "bg-green-50 border-green-200 hover:border-green-400",
     },
     {
       title: "AI & Cloud",
-      icon: Cloud,
       skills: [
         "Google Cloud Platform",
         "Vertex AI",
         "Oracle Cloud AI",
         "Generative AI",
-        "LLMs",
       ],
+      color: "bg-orange-50 border-orange-200 hover:border-orange-400",
     },
     {
       title: "AI/ML Specialization",
-      icon: Brain,
       skills: [
         "Deep Learning",
         "Machine Learning",
         "Prompt Engineering",
         "Neural Networks",
       ],
+      color: "bg-pink-50 border-pink-200 hover:border-pink-400",
     },
     {
       title: "Tools & Technologies",
-      icon: Code,
       skills: [
         "Git",
         "GitHub",
         "Selenium",
         "JUnit",
-        "pytest",
         "Excel",
         "Power BI",
       ],
+      color: "bg-indigo-50 border-indigo-200 hover:border-indigo-400",
     },
   ];
 
@@ -70,40 +67,34 @@ const Skills = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Technical Skills
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-blue-400 mx-auto"></div>
+          <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
             A comprehensive toolkit for building modern, scalable applications
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map((category, index) => {
-            const Icon = category.icon;
-            return (
-              <div
-                key={index}
-                className="glass-effect p-6 rounded-xl hover:scale-105 transition-all duration-300 group animate-scale-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                    <Icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="font-bold text-lg">{category.title}</h3>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill, skillIndex) => (
-                    <span
-                      key={skillIndex}
-                      className="px-3 py-1 bg-secondary rounded-full text-sm text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 cursor-default"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
+          {skillCategories.map((category, index) => (
+            <div
+              key={index}
+              className={`bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 ${category.color} animate-scale-in`}
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <h3 className="font-bold text-xl mb-4 text-foreground">
+                {category.title}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {category.skills.map((skill, skillIndex) => (
+                  <span
+                    key={skillIndex}
+                    className="px-3 py-1.5 bg-white border border-border rounded-full text-sm text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 cursor-default shadow-sm"
+                  >
+                    {skill}
+                  </span>
+                ))}
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </section>

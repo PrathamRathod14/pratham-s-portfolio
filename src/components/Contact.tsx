@@ -32,54 +32,44 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-secondary/30">
+    <section id="contact" className="section-padding bg-gradient-to-b from-white to-secondary/20">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-blue-400 mx-auto"></div>
+          <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
             Let's work together to bring your ideas to life
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          <div className="space-y-8 animate-fade-in-up">
-            <div className="glass-effect p-6 rounded-xl">
+        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <div className="space-y-6 animate-fade-in-up">
+            <div className="bg-white p-8 rounded-xl shadow-lg border-2 border-border">
               <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <a
                   href="mailto:pratham.rathod1401@gmail.com"
                   className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors group"
                 >
-                  <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                    <Mail className="w-5 h-5 text-primary" />
+                  <div className="p-4 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                    <Mail className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground">Email</p>
-                    <p className="font-semibold">pratham.rathod1401@gmail.com</p>
+                    <p className="text-sm text-muted-foreground font-medium">Email</p>
+                    <p className="font-semibold text-foreground">pratham.rathod1401@gmail.com</p>
                   </div>
                 </a>
-
-                <div className="flex items-center gap-4 text-muted-foreground">
-                  <div className="p-3 rounded-lg bg-primary/10">
-                    <MapPin className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">Location</p>
-                    <p className="font-semibold">Braunschweig, Germany</p>
-                  </div>
-                </div>
               </div>
             </div>
 
-            <div className="glass-effect p-6 rounded-xl">
+            <div className="bg-white p-8 rounded-xl shadow-lg border-2 border-border">
               <h3 className="text-xl font-bold mb-4">Connect With Me</h3>
               <div className="flex gap-4">
                 <a
                   href="https://www.linkedin.com/in/prathamrathod14/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-4 rounded-lg bg-secondary hover:bg-primary transition-all hover:scale-110"
+                  className="p-4 rounded-lg bg-primary/10 hover:bg-primary hover:text-primary-foreground transition-all hover:scale-110 shadow-sm"
                 >
                   <Linkedin className="w-6 h-6" />
                 </a>
@@ -87,7 +77,7 @@ const Contact = () => {
                   href="https://github.com/PrathamRathod14"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-4 rounded-lg bg-secondary hover:bg-primary transition-all hover:scale-110"
+                  className="p-4 rounded-lg bg-primary/10 hover:bg-primary hover:text-primary-foreground transition-all hover:scale-110 shadow-sm"
                 >
                   <Github className="w-6 h-6" />
                 </a>
@@ -97,10 +87,10 @@ const Contact = () => {
 
           <form
             onSubmit={handleSubmit}
-            className="glass-effect p-6 rounded-xl space-y-6 animate-fade-in-up"
+            className="bg-white p-8 rounded-xl shadow-lg border-2 border-border space-y-6 animate-fade-in-up"
           >
             <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-2">
+              <label htmlFor="name" className="block text-sm font-semibold mb-2 text-foreground">
                 Name
               </label>
               <Input
@@ -110,12 +100,12 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 placeholder="Your name"
-                className="bg-background border-border"
+                className="bg-white border-2 border-border focus:border-primary"
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-2">
+              <label htmlFor="email" className="block text-sm font-semibold mb-2 text-foreground">
                 Email
               </label>
               <Input
@@ -126,14 +116,14 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 placeholder="your.email@example.com"
-                className="bg-background border-border"
+                className="bg-white border-2 border-border focus:border-primary"
               />
             </div>
 
             <div>
               <label
                 htmlFor="message"
-                className="block text-sm font-medium mb-2"
+                className="block text-sm font-semibold mb-2 text-foreground"
               >
                 Message
               </label>
@@ -145,14 +135,14 @@ const Contact = () => {
                 required
                 placeholder="Your message..."
                 rows={6}
-                className="bg-background border-border"
+                className="bg-white border-2 border-border focus:border-primary"
               />
             </div>
 
             <Button
               type="submit"
               size="lg"
-              className="w-full bg-primary hover:bg-primary/90"
+              className="w-full bg-primary hover:bg-primary/90 shadow-lg"
             >
               Send Message
             </Button>
