@@ -113,15 +113,6 @@ const About = () => {
               })}
             </div>
 
-            <div className="glass-effect p-6 rounded-xl space-y-4 animate-fade-in">
-              <h4 className="font-bold text-lg">Quick Facts</h4>
-              <div className="space-y-2 text-muted-foreground">
-                <p>📍 Based in Braunschweig, Germany</p>
-                <p>🎓 MSc Digital Technologies Student</p>
-                <p>💼 Freelance Developer</p>
-                <p>🏆 Hackathon Winner</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
