@@ -21,39 +21,50 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center section-padding pt-32 relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5"
+      className="min-h-screen flex items-center justify-center section-padding pt-32 relative overflow-hidden"
     >
-      {/* Animated Background Elements */}
+      {/* Animated Background with Wave Lines */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Floating Circles */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '0s' }}></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-accent/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+        {/* Subtle gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/[0.02] to-background"></div>
         
-        {/* Animated Wave Pattern */}
+        {/* Animated flowing wave lines - similar to reference */}
         <svg 
-          className="absolute right-0 top-1/2 -translate-y-1/2 w-[1000px] h-[600px] opacity-[0.15]"
-          viewBox="0 0 1000 600"
-          fill="none"
+          className="absolute right-0 top-1/2 -translate-y-1/2 w-[1200px] h-[800px] opacity-[0.15]"
+          viewBox="0 0 1200 800"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <g className="animate-float" style={{ transformOrigin: 'center' }}>
-            {[...Array(20)].map((_, i) => (
-              <path
-                key={i}
-                d={`M ${i * 50} 300 Q ${i * 50 + 25} ${280 + Math.sin(i) * 20}, ${i * 50 + 50} 300 T ${i * 50 + 100} 300`}
-                stroke="currentColor"
-                strokeWidth="1"
-                fill="none"
-                className="text-primary"
-                opacity={0.3 - i * 0.01}
-              />
-            ))}
+          {/* Multiple wave layers */}
+          <g>
+            {[...Array(30)].map((_, i) => {
+              const yOffset = 400;
+              const amplitude = 40 + i * 2;
+              const frequency = 0.01 + i * 0.0002;
+              const phase = i * 0.3;
+              
+              return (
+                <path
+                  key={i}
+                  d={`M 0 ${yOffset} Q ${300} ${yOffset - amplitude * Math.sin(phase)}, ${600} ${yOffset} T ${1200} ${yOffset}`}
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  fill="none"
+                  className="text-primary animate-float"
+                  style={{ 
+                    opacity: 0.4 - i * 0.012,
+                    animationDuration: `${6 + i * 0.3}s`,
+                    animationDelay: `${i * 0.1}s`
+                  }}
+                />
+              );
+            })}
           </g>
         </svg>
 
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+        {/* Subtle floating orbs */}
+        <div className="absolute top-1/4 left-[10%] w-64 h-64 bg-primary/[0.03] rounded-full blur-3xl animate-float" style={{ animationDelay: '0s', animationDuration: '8s' }}></div>
+        <div className="absolute bottom-1/4 right-[15%] w-80 h-80 bg-primary/[0.05] rounded-full blur-3xl animate-float" style={{ animationDelay: '2s', animationDuration: '10s' }}></div>
+        <div className="absolute top-1/3 right-[20%] w-72 h-72 bg-accent/[0.03] rounded-full blur-3xl animate-float" style={{ animationDelay: '4s', animationDuration: '12s' }}></div>
       </div>
 
       <div className="max-w-5xl mx-auto text-center relative z-10">
@@ -63,7 +74,7 @@ const Hero = () => {
             <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-tight tracking-tight text-foreground">
               Pratham
             </h1>
-            <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-tight tracking-tight bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent animate-glow">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-tight tracking-tight bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
               Rathod
             </h1>
           </div>
