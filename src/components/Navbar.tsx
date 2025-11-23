@@ -33,26 +33,28 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-md" : "bg-white/90 backdrop-blur-sm"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled 
+          ? "bg-background/95 backdrop-blur-md shadow-lg border-b border-border/50" 
+          : "bg-background/80 backdrop-blur-sm"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <a
             href="#home"
-            className="text-2xl font-bold cursor-pointer flex items-center gap-2"
+            className="text-2xl md:text-3xl font-bold cursor-pointer flex items-center gap-2 group"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection("#home");
             }}
           >
-            <span className="text-foreground">Pratham</span>
-            <span className="text-primary">Rathod</span>
+            <span className="text-foreground transition-colors group-hover:text-primary">Pratham</span>
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Rathod</span>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -61,17 +63,17 @@ const Navbar = () => {
                   e.preventDefault();
                   scrollToSection(link.href);
                 }}
-                className="text-foreground hover:text-primary transition-colors cursor-pointer font-medium relative group"
+                className="text-foreground/80 hover:text-primary transition-all duration-300 cursor-pointer font-medium relative group px-4 py-2 rounded-lg hover:bg-primary/5"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 group-hover:w-3/4 rounded-full"></span>
               </a>
             ))}
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground p-2"
+            className="md:hidden text-foreground p-2 hover:bg-primary/10 rounded-lg transition-all"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -81,9 +83,9 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-border shadow-lg">
-          <div className="px-4 py-4 space-y-3">
-            {navLinks.map((link) => (
+        <div className="md:hidden bg-card/95 backdrop-blur-md border-t border-border/50 shadow-xl animate-fade-in">
+          <div className="px-4 py-6 space-y-2">
+            {navLinks.map((link, index) => (
               <a
                 key={link.name}
                 href={link.href}
@@ -91,7 +93,8 @@ const Navbar = () => {
                   e.preventDefault();
                   scrollToSection(link.href);
                 }}
-                className="block text-foreground hover:text-primary transition-colors cursor-pointer font-medium py-2"
+                className="block text-foreground hover:text-primary hover:bg-primary/10 transition-all cursor-pointer font-medium py-3 px-4 rounded-lg animate-slide-in-right"
+                style={{ animationDelay: `${index * 0.05}s` }}
               >
                 {link.name}
               </a>

@@ -29,33 +29,35 @@ const Certifications = () => {
   ];
 
   return (
-    <section id="certifications" className="section-padding">
+    <section id="certifications" className="section-padding bg-gradient-to-b from-background to-muted/20">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+        <div className="text-center mb-20 animate-fade-in">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
             Professional Certifications
           </h2>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {certifications.map((cert, index) => (
             <a
               key={index}
               href="https://www.linkedin.com/in/prathamrathod14/details/certifications/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer text-center border-2 border-border hover:border-primary/50 animate-scale-in"
+              className="bg-card p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 group cursor-pointer text-center border-2 border-border/50 hover:border-primary hover:-translate-y-3 animate-scale-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="flex justify-center mb-4">
-                <div className="text-4xl">{cert.icon}</div>
+              <div className="flex justify-center mb-6">
+                <div className="text-5xl md:text-6xl transform group-hover:scale-110 transition-transform duration-300">
+                  {cert.icon}
+                </div>
               </div>
-              <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors min-h-[3.5rem] flex items-center justify-center">
+              <h3 className="font-bold text-lg md:text-xl mb-3 group-hover:text-primary transition-colors min-h-[3.5rem] flex items-center justify-center">
                 {cert.title}
               </h3>
-              <p className="text-sm text-primary font-semibold mb-1">{cert.issuer}</p>
-              <p className="text-xs text-muted-foreground bg-primary/5 px-3 py-1 rounded-full inline-block">
+              <p className="text-sm md:text-base text-primary font-semibold mb-2">{cert.issuer}</p>
+              <p className="text-xs font-semibold text-foreground bg-primary/10 px-4 py-1.5 rounded-full inline-block">
                 {cert.year}
               </p>
             </a>

@@ -56,43 +56,48 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="section-padding bg-gradient-to-b from-white to-secondary/20">
+    <section id="experience" className="section-padding bg-gradient-to-b from-muted/20 to-background">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Experience</h2>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+        <div className="text-center mb-20 animate-fade-in">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+            Experience
+          </h2>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-20">
+        <div className="grid md:grid-cols-2 gap-8 mb-24">
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-border hover:border-primary/50 animate-fade-in-up"
+              className="bg-card p-8 md:p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-border/50 hover:border-primary/50 hover:-translate-y-2 animate-fade-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-lg bg-primary/10">
-                  <Briefcase className="w-6 h-6 text-primary" />
+                <div className="p-4 rounded-xl bg-primary/10">
+                  <Briefcase className="w-7 h-7 text-primary" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-bold text-xl mb-1">{exp.role}</h3>
-                  <p className="text-primary font-semibold text-lg">{exp.company}</p>
-                  <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground mt-2 mb-4">
-                    <span>{exp.location}</span>
+                  <h3 className="font-bold text-2xl mb-2 text-foreground">{exp.role}</h3>
+                  <p className="text-primary font-semibold text-lg mb-1">{exp.company}</p>
+                  <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground mb-4">
+                    <span className="flex items-center gap-1">
+                      <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                      {exp.location}
+                    </span>
                     <span>•</span>
                     <span>{exp.period}</span>
                     <span>•</span>
-                    <span className="px-2 py-0.5 bg-primary/10 text-primary rounded-full text-xs font-medium">
+                    <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-semibold">
                       {exp.type}
                     </span>
                   </div>
-                  <ul className="space-y-2">
+                  <ul className="space-y-3 mt-6">
                     {exp.responsibilities.map((resp, respIndex) => (
                       <li
                         key={respIndex}
-                        className="text-sm text-muted-foreground flex items-start leading-relaxed"
+                        className="text-sm md:text-base text-muted-foreground flex items-start leading-relaxed"
                       >
-                        <span className="text-primary mr-2 mt-1">▸</span>
+                        <span className="text-primary mr-3 mt-1 font-bold">▸</span>
                         {resp}
                       </li>
                     ))}
@@ -103,38 +108,38 @@ const Experience = () => {
           ))}
         </div>
 
-        <div className="text-center mb-12">
-          <h3 className="text-3xl font-bold mb-4 flex items-center justify-center gap-3">
-            <Award className="w-8 h-8 text-primary" />
+        <div className="text-center mb-16">
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 flex items-center justify-center gap-3 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+            <Award className="w-8 h-8 md:w-10 md:h-10 text-primary" />
             Achievements & Recognition
           </h3>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-8"></div>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {achievements.map((achievement, index) => (
             <a
               key={index}
               href="https://www.linkedin.com/in/prathamrathod14/details/honors/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer border-2 border-border hover:border-primary/50 animate-scale-in"
+              className="bg-card p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 group cursor-pointer border-2 border-border/50 hover:border-primary hover:-translate-y-2 animate-scale-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <Award className="w-6 h-6 text-primary" />
+                <div className="p-4 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                  <Award className="w-7 h-7 text-primary" />
                 </div>
                 <div className="flex-1">
-                  <div className="flex items-start justify-between mb-2">
-                    <h4 className="font-bold text-lg group-hover:text-primary transition-colors">
+                  <div className="flex items-start justify-between mb-3">
+                    <h4 className="font-bold text-lg md:text-xl group-hover:text-primary transition-colors flex-1 pr-2">
                       {achievement.title}
                     </h4>
-                    <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded-full">
+                    <span className="text-xs font-bold text-primary bg-primary/10 px-3 py-1.5 rounded-full whitespace-nowrap">
                       {achievement.year}
                     </span>
                   </div>
-                  <p className="text-sm text-primary font-semibold mb-2">
+                  <p className="text-sm md:text-base text-primary font-semibold mb-2">
                     {achievement.organization}
                   </p>
                   <p className="text-sm text-muted-foreground">
