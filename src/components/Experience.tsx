@@ -15,11 +15,11 @@ const Experience = () => {
       ],
     },
     {
-      role: "Freelance Developer",
+      role: "Freelancer",
       company: "Fiverr",
       location: "Remote",
       period: "Mar 2024 – Present",
-      type: "on-site",
+      type: "remote",
       responsibilities: [
         "Providing full-stack web development services",
         "Building scalable backend systems and responsive frontends",
